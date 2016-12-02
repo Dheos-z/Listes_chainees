@@ -11,11 +11,13 @@ struct Maillon
 typedef struct Liste Liste;
 struct Liste
 {
+    int taille;
 	Maillon *premier;
 };
 
-Liste* initialiserListe();
+Liste* initialiserListe(int nombre);
 void afficherListe(Liste *liste);
 void ajouterMaillonFin(Liste *liste, int nombre);
+int ajouterMaillonMilieu(Liste *liste, int nombre, int indice);
 
 #endif

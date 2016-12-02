@@ -5,15 +5,21 @@
 int main()
 {
 	Liste* liste = NULL;
-	
-	liste = initialiserListe();
-	
+	int indice = 0, valeur = 0;
+
+	liste = initialiserListe(5);
+    ajouterMaillonFin(liste, 9);
+    ajouterMaillonFin(liste, 847);
+
+    do
+    {
+        printf("Taille de la liste : %d\nQuel indice ? ", liste->taille);
+        scanf(" %d", &indice);
+        printf("Quelle valeur ? ");
+        scanf(" %d", &valeur);
+    }while(ajouterMaillonMilieu(liste, valeur, indice));
+
 	afficherListe(liste);
-	printf("Puis :\n");
-	ajouterMaillonFin(liste, 12);
-	ajouterMaillonFin(liste, 9);
-	ajouterMaillonFin(liste, 7);
-	afficherListe(liste);
-	
+
 	return 0;
 }
