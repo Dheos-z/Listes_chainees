@@ -7,9 +7,9 @@ int main()
 	Liste* liste = NULL;
 	int indice = 0, valeur = 0;
 
-	liste = initialiserListe(5);
-    ajouterMaillonFin(liste, 9);
-    ajouterMaillonFin(liste, 847);
+	liste = initialiserListe(22);
+    ajouterMaillonFin(liste, 49);
+    ajouterMaillonFin(liste, 11); // Changement des données
 
     do
     {
