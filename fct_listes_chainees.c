@@ -33,6 +33,7 @@ void afficherListe(Liste *liste)
 
 		courant = courant->suivant; // On parcoure la liste
 	}
+	printf("\n");
 
 	return;
 }
@@ -98,4 +99,10 @@ int ajouterMaillonMilieu(Liste *liste, int nombre, int indice)
 
         return 0;
     }
+}
+
+
+void supprimerMaillon(Liste *liste, int rang)
+{
+	
 }
