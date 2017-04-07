@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "fct_saisie_securisee.h"
 
 
 // Lit une chaine contenant au maximum nbCaractMax caractères

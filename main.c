@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "fct_listes_chainees.h"
 
-int main()
+int main(int argc, char* argv[])
 {
 	Liste* liste = NULL;
 	int indice = 0, valeur = 0;
