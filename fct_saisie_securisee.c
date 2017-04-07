@@ -36,3 +36,10 @@ void viderBuffer()
 
     return;
 }
+
+
+long lireNombre(char chaine[], int nbCharMax)
+{
+	lireChaine(chaine, nbCharMax);
+	return strtol(chaine, NULL, 10);
+}

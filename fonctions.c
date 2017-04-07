@@ -4,7 +4,7 @@
 
 void afficherMenu()
 {
-	printf("\nMENU\n\n1) Creer une liste chainee\n2) Ajouter un maillon a la fin\n3) Ajouter un maillon au milieu\n4) Ajouter un maillon au debut\n5) Supprimer un maillon\n6) Quitter le programme\n");
+	printf("\nMENU\n\n1) Creer une liste chainee\n2) Ajouter un maillon au début\n3) Ajouter un maillon au milieu\n4) Ajouter un maillon à la fin\n5) Supprimer un maillon\n6) Afficher la liste\n7) Quitter le programme\n");
 	return;
 }
 

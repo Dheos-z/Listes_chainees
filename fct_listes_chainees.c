@@ -77,12 +77,12 @@ void ajouterMaillonDebut(Liste *liste, int nombre)
 int ajouterMaillonMilieu(Liste *liste, int nombre, int indice)
 {
     int i = 0;
-
     Maillon *precedentFinal = liste->premier, *nouveau = malloc(sizeof(Maillon)), *suivantFinal = NULL;
 
     if(liste->taille < 2 || indice >= liste->taille || indice < 1)
     {
-        return 1; // Erreur : taille trop petite, ou l'indice demandé est trop grand, ou négatif
+		printf("Erreur : taille de la liste trop petite (< 2) ou bien l'indice demandé est trop grand ou négatif\n");
+        return 1;
     }
     else
     {
@@ -104,5 +104,36 @@ int ajouterMaillonMilieu(Liste *liste, int nombre, int indice)
 
 void supprimerMaillon(Liste *liste, int rang)
 {
+	int i = 0;
+	Maillon *precedentFinal = liste->premier, *suivantFinal = NULL, *maillonAsupprimer = NULL;
 	
+	if(liste->taille < 2 || rang < 0 || rang >= liste->taille)
+	{
+		printf("Erreur de saisie du rang\n");
+	}
+	else
+	{
+		if(rang)
+		{
+			for(i=0; i<rang-1; i++)
+			{
+				precedentFinal = precedentFinal->suivant;
+			}
+			// Ici, precedentFinal vaut la case qui précèdera le nouvel élément
+			
+			maillonAsupprimer = precedentFinal->suivant;
+			suivantFinal = maillonAsupprimer->suivant;
+			
+			precedentFinal->suivant = suivantFinal;
+			free(maillonAsupprimer);
+		}
+		else // Si on veut supprimer le maillon au rang 0
+		{
+			maillonAsupprimer = precedentFinal;
+			liste->premier = precedentFinal->suivant;
+			free(maillonAsupprimer);
+		}
+	}
+	
+	return;
 }
