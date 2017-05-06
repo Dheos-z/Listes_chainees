@@ -21,5 +21,6 @@ void ajouterMaillonFin(Liste *liste, int nombre);
 void ajouterMaillonDebut(Liste *liste, int nombre);
 int ajouterMaillonMilieu(Liste *liste, int nombre, int indice);
 void supprimerMaillon(Liste *liste, int rang);
+void deplacerElement(Liste *liste, int rangDepart, int rangArrivee);
 
 #endif

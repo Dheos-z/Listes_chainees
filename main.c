@@ -4,15 +4,34 @@
 #include "fct_saisie_securisee.h"
 #include "fonctions.h"
 
-// VERIFIER SI SUPPRIMERMAILLON() FONCTIONNE
+/* Un moment où j'ai le temps : refaire la bibliothèque Listes_chainees avec des
+ * améliorations : le but est de faire plein de fonctions simples qui permettront
+ * de faire de plus grandes choses avec une liste :
+ * - Faire une fonction qui initialise les donnees (données en paramètre) d'un élément
+ * Ainsi, toutes les fonctions de création d'élément n'auront plus à prendre
+ * la donnée en paramètre, ce sera initialisé à 0.
+ * Plus tard l'utilisateur pourra mettre ce qu'il veut en appelant la fn.
+ * - Idée : créer plutôt une liste doublement chaînée
+ * - ajouterMaillon() : permettra d'ajouter un maillon partout (même début et fin),
+ * il suffira de vérifier le rang donné pr appeler la bonne fonction
+ */
 
 int main(int argc, char* argv[])
 {
 	Liste* liste = NULL;
-	int boolListe = 0, donnee = 0, position = 0;
+	int boolListe = 1, donnee = 0, position = 0, rangDepart = 0, rangArrivee = 0, i=0;
 	char choix[3] = "", donneeString[10] = "", positionString[10] = ""; 
 		// Pour choix : Première case pour le caractère, deuxième pour le \n, troisième pour le \0
 
+	
+	liste = initialiserListe(0);
+	for(i=0; i<9; i++)
+	{
+		ajouterMaillonFin(liste, i+1);
+	}
+	afficherListe(liste);
+	
+	
 	do
 	{
 		afficherMenu();
@@ -73,17 +92,33 @@ int main(int argc, char* argv[])
 			case '5': // Supprimer maillon
 				if(boolListe)
 				{
+					printf("Pas encore implemente\n");
 				}
 			break;
 			
-			case '6': // Afficher liste
+			case '6': // Deplacer élément
+				if(boolListe)
+				{
+					printf("Quel est le rang de depart de l'element ? (max : %d)\n", liste->taille-1);
+					rangDepart = (int)lireNombre(positionString, 8);
+					
+					printf("Quel est le rang d'arrivee de l'element ? (max : %d)\n", liste->taille-1);
+					rangArrivee = (int)lireNombre(positionString, 8);
+					
+					deplacerElement(liste, rangDepart, rangArrivee);
+				}
+
+			break;
+			
+			case '7': // Afficher liste
 				if(boolListe)
 				{
 					afficherListe(liste);
 				}
 			break;
 				
-			case '7': // Quitter
+			case '8': // Quitter
+				// FAIRE LES LIBERATIONS DE MEMOIRE
 			break;
 			
 			default:
@@ -91,7 +126,7 @@ int main(int argc, char* argv[])
 			break;
 		}
 		
-	}while(choix[0] != '7');
+	}while(choix[0] != '8');
 
 	return 0;
 }
